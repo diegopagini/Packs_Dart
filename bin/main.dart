@@ -3,6 +3,6 @@ import 'package:dart_application_packs/dart_application_packs.dart' as lib;
 
 void main() async {
   lib.getResponseService();
-  final response = await countries.getCountries();
-  print(response);
+  final [col] = await countries.getCountries();
+  print(col);
 }

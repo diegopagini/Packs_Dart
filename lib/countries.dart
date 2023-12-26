@@ -7,7 +7,6 @@ Future<List<Country>> getCountries() async {
   try {
     final response = await http.get(url);
     final value = countryFromJson(response.body);
-    print(value);
     return value;
   } catch (e) {
     throw 'Error: $e';

@@ -4,7 +4,6 @@ import 'capital_info.dart';
 import 'car.dart';
 import 'coat_of_arms.dart';
 import 'currencies.dart';
-import 'demonyms.dart';
 import 'flags.dart';
 import 'gini.dart';
 import 'idd.dart';
@@ -14,9 +13,6 @@ import 'name.dart';
 
 List<Country> countryFromJson(String str) =>
     List<Country>.from(json.decode(str).map((x) => Country.fromJson(x)));
-
-String countryToJson(List<Country> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Country {
   Name name;
@@ -125,43 +121,6 @@ class Country {
         startOfWeek: json["startOfWeek"],
         capitalInfo: CapitalInfo.fromJson(json["capitalInfo"]),
       );
-
-  Map<String, dynamic> toJson() => {
-        "name": name.toJson(),
-        "tld": List<dynamic>.from(tld.map((x) => x)),
-        "cca2": cca2,
-        "ccn3": ccn3,
-        "cca3": cca3,
-        "cioc": cioc,
-        "independent": independent,
-        "status": status,
-        "unMember": unMember,
-        "currencies": currencies.toJson(),
-        "idd": idd.toJson(),
-        "capital": List<dynamic>.from(capital.map((x) => x)),
-        "altSpellings": List<dynamic>.from(altSpellings.map((x) => x)),
-        "region": region,
-        "subregion": subregion,
-        "languages": languages.toJson(),
-        "translations": Map.from(translations)
-            .map((k, v) => MapEntry<String, dynamic>(k, v.toJson())),
-        "latlng": List<dynamic>.from(latlng.map((x) => x)),
-        "landlocked": landlocked,
-        "borders": List<dynamic>.from(borders.map((x) => x)),
-        "area": area,
-        "flag": flag,
-        "maps": maps.toJson(),
-        "population": population,
-        "gini": gini.toJson(),
-        "fifa": fifa,
-        "car": car.toJson(),
-        "timezones": List<dynamic>.from(timezones.map((x) => x)),
-        "continents": List<dynamic>.from(continents.map((x) => x)),
-        "flags": flags.toJson(),
-        "coatOfArms": coatOfArms.toJson(),
-        "startOfWeek": startOfWeek,
-        "capitalInfo": capitalInfo.toJson(),
-      };
 
   @override
   String toString() {
